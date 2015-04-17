@@ -1,0 +1,6 @@
+-if I18n.locale.to_s == 'en'
+  %li
+    = link_to 'عربي', change_local_users_path(local: :ar)
+-else
+  %li
+    = link_to 'English', change_local_users_path(local: :en)

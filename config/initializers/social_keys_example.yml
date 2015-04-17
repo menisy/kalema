@@ -1,0 +1,13 @@
+development:
+  facebook_key: "286373121539324"
+  facebook_secret: "9abbf60c62406b8776b5f3c6e37f532a"
+
+  twitter_key: "YOUR_KEY"
+  twitter_secret: "YOUR_SECRET"
+
+production:
+  facebook_key: "286373121539324"
+  facebook_secret: "9abbf60c62406b8776b5f3c6e37f532a"
+
+  twitter_key: "YOUR_KEY"
+  twitter_secret: "YOUR_SECRET"

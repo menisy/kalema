@@ -1,0 +1,380 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require social-share-button
+ *= require common
+ *= require slider
+ */
+
+
+
+$navbar-default-bg: #004853;
+$navbar-default-color: #F63700;
+$navbar-default-link-color: #F63700;
+$navbar-default-link-active-color: #FB6900;
+$navbar-default-link-hover-color: #eee;
+$btn-success-bg: #00DA3C;
+$navbar-margin-bottom: 0px;
+$body-bg: #00B9BD;
+
+
+
+@import "bootstrap";
+
+body{
+  width:70%;
+  margin: 0 auto;
+}
+
+.centered{
+  width: 100%;
+  text-align: center;
+}
+.share, .login{
+  div{
+    display: inline-block;
+  }
+  img{
+    width: 40px;
+    cursor: pointer;
+  }
+}
+.game-container{
+  margin: auto 80px;
+  width: 80%;
+  height: 430px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 10px #7C7C7C;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.game-container img{
+  min-height: 20px;
+}
+.game-container .nav{
+  z-index: 100;
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+.game-container .btn{
+  box-shadow: 2px 2px 10px #7C7C7C;
+}
+.game-container {
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -kthtml-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+@keyframes changeShadow {
+  0% {
+    -webkit-box-shadow: 1px 1px 20px #CC374D;
+    -moz-box-shadow: 1px 1px 20px #CC374D;
+    box-shadow: 1px 1px 20px #CC374D;
+  }
+
+  50% {
+    -webkit-box-shadow: 1px 1px 7px #CC374D;
+    -moz-box-shadow: 1px 1px 7px #CC374D;
+    box-shadow: 1px 1px 7px #CC374D;
+  }
+}
+@-webkit-keyframes changeShadow {
+  0% {
+    -webkit-box-shadow: 1px 1px 20px #CC374D;
+    -moz-box-shadow: 1px 1px 20px #CC374D;
+    box-shadow: 1px 1px 20px #CC374D;
+  }
+
+  50% {
+    -webkit-box-shadow: 1px 1px 7px #CC374D;
+    -moz-box-shadow: 1px 1px 7px #CC374D;
+    box-shadow: 1px 1px 7px #CC374D;
+  }
+}
+@-moz-keyframes changeShadow {
+  0% {
+    -webkit-box-shadow: 1px 1px 20px #CC374D;
+    -moz-box-shadow: 1px 1px 20px #CC374D;
+    box-shadow: 1px 1px 20px #CC374D;
+  }
+
+  50% {
+    -webkit-box-shadow: 1px 1px 7px #CC374D;
+    -moz-box-shadow: 1px 1px 7px #CC374D;
+    box-shadow: 1px 1px 7px #CC374D;
+  }
+}
+@-o-keyframes changeShadow {
+  0% {
+    -webkit-box-shadow: 1px 1px 20px #CC374D;
+    -moz-box-shadow: 1px 1px 20px #CC374D;
+    box-shadow: 1px 1px 20px #CC374D;
+  }
+
+  50% {
+    -webkit-box-shadow: 1px 1px 7px #CC374D;
+    -moz-box-shadow: 1px 1px 7px #CC374D;
+    box-shadow: 1px 1px 7px #CC374D;
+  }
+}
+
+.shadow {
+  -webkit-animation: changeShadow 1s infinite ease-in; /* Safari 4+ */
+  -moz-animation:    changeShadow 1s infinite ease-in; /* Fx 5+ */
+  -o-animation:      changeShadow 1s infinite ease-in; /* Opera 12+ */
+  animation:         changeShadow 1s infinite ease-in; /* IE 10+ */
+}
+
+.upper-box{
+  height: 87%;
+  margin: 3px;
+  overflow: hidden;
+}
+.upper-box img{
+  position: relative;
+}
+.text-box{
+  width: 80%;
+  height: 30px;
+  margin: auto;
+}
+.text-box input{
+  width: 95%;
+}
+.image-holder{
+  display: none;
+  height: 0px;
+}
+.counter{
+  position: absolute;
+  top: 140px;
+  left: 44%;
+}
+.counter h1{
+  opacity: 0.0;
+  position: absolute;
+}
+.one, .two, .three, .go{
+  font-size: 3em;
+  text-align: center;
+}
+.go{
+  left: -30px;
+}
+.two{
+  margin-top: 20px;
+}
+.three{
+  margin-top: 60px;
+}
+#main-container{
+  padding:60px 20px 10px 20px;
+  box-shadow: -1px 0px 10px #222;
+}
+.word-container{
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid #7FFF24;
+  border-radius: 3px;
+  margin-top: 2px;
+  color: #7FFF24;
+}
+.words{
+  padding: 10px 0px;
+}
+.rtl{
+  direction: rtl;
+}
+.center{
+  width: 30%;
+  margin: 10px auto;
+}
+.start, .restart{
+  width: 90%;
+  margin: 0px auto;
+}
+.upload-list{
+  list-style: none;
+  padding-top: 5px;
+}
+.upload-list li{
+  padding: 10px;
+  display: block;
+  height: 70px;
+  width: 70%;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.upload-list li div{
+  float: right;
+  top: -5px;
+  position: relative;
+}
+.upload-list li p{
+  display: inline-block;
+  float: left;
+  padding-top: 10px;
+}
+.thumb{
+  display: inline-block;
+  height: 40px;
+  width:40px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.thumb img{
+  height: 100%;
+  width: 100%;
+}
+.browse{
+  display: inline-block;
+}
+.alert{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  box-shadow: 1px 1px 7px;
+}
+.page-image{
+  overflow: hidden;
+}
+.page-image img{
+  max-width: 100%;
+}
+.left-box{
+  height: 400px;
+  margin: auto;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.progress-container{
+  height: 100%;
+  width: 16px;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.progress{
+  width: 12px;
+  height: 0%;
+  border-radius: 6px;
+  background-color: #BEF202;
+  position: relative;
+  bottom: 0px;
+}
+.modal-dialog{
+  position: relative;
+  z-index: 2000;
+}
+.first-nav{
+  display: inline-block;
+}
+.second-nav{
+  float: right;
+  display: inline-block;
+}
+.nav{
+  padding-top: 5px;
+}
+
+/*
+body{
+  padding: 30px 20px 0px 0px;
+  width: 60%;
+  margin-left: 15%;
+  background-color: #07334D !important;
+  color: #00CDAC !important;
+}
+.navbar-fixed-top{
+  background-color: #00CDAC;
+  box-shadow: 0px 1px 10px #222;
+}
+.navbar-fixed-top .container{
+  width: 70%;
+}
+ul.nav a{
+  color: #07334D !important;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-shadow: none !important;
+}
+ul.nav a:hover{
+  color: #00CDAC !important;
+  background-color: #07334D !important;
+}
+h1, h2, h3, h4, h5, h6, table, a:not(.btn){
+  color: #00CDAC !important;
+}
+th{
+  background-color: #00CDAC;
+  color: #07334D;
+}
+.form-actions{
+  background-color: transparent !important;
+  border-top: 1px solid #00CDAC;
+}
+.table-striped tbody>tr:nth-child(odd)>td{
+  background-color: #151F2C;
+}
+table td{
+  border-top: none !important;
+}
+.page-header{
+  border-bottom-color: #00CDAC;
+}
+img{
+  padding: 2px;
+  background-color: #fff;
+}
+.btn-success, .btn{
+  border: 1px solid #00CDAC;
+  color: #00CDAC !important;
+}
+.btn-success:hover, .btn:hover{
+  color: #07334D !important;
+  background-color: #00CDAC;
+}
+.btn-danger{
+  background-image: linear-gradient(to bottom, #ED2874, #bd362f) !important;
+}
+.btn{
+  background-image: none !important;
+  background-color: transparent;
+}
+.btn:hover{
+  box-shadow: 0px 1px 7px #7B8F94;
+}
+.btn-primary{
+  color: #07334D !important;
+  background-color: #00CDAC !important;
+}
+.btn-primary:hover{
+  background-color: #07334D !important;
+  color: #00CDAC !important;
+  border: 1px solid #00CDAC;
+}
+
+*/
+
+ul.mid{
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  height: 20px;
+  margin-top: -15px;
+}

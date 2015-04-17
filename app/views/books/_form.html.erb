@@ -1,0 +1,40 @@
+<%= form_for @book, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :reference, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :reference, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :language, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lang, :class => 'text_field' %>
+    </div>
+  </div>
+    <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div class="controls">
+      <%= link_to 'Upload cover', '#', class: 'btn btn-primary', id: 'click-upload' %>
+      <span class="filename"></span>
+      <%= f.file_field :attachment, class: 'hidden', id: 'file-upload' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :two_pages, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :two_pages %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn' %>
+  </div>
+<% end %>

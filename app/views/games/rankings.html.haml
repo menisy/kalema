@@ -1,0 +1,22 @@
+
+%h1
+  = t(:rankings)
+
+-@users.each_with_index do |user, i|
+  .user-prev
+    = i+1
+    \-
+    .pic
+      =image_tag user.image
+    .name
+      %h3
+        = user.name
+    .score.pull-right
+      %h4
+        = user.score
+        = t(:points)
+
+    .score.pull-right
+      %h4
+        = user.games.count
+        = t(:games)

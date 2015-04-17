@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>كَلِمَة - سابق أصدقائك </title>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '286373121539324',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript" src="http://api.yamli.com/js/yamli_api.js"></script>
+ 
+    <% if I18n.locale.to_s == 'en' %>
+      <%= stylesheet_link_tag    "application", media: "all" %>
+    <% else %>
+          <%= stylesheet_link_tag    "arabic", media: "all" %>
+    <% end %>
+
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <meta property="og:title" content="كَلِمَة"/>
+    <meta property="og:image" content="http://146.185.151.250:1111/assets/logo-inv-42ce47f6741cfbf8d1969c3fe90ea582.png"/>
+    <meta property="og:site_name" content="كَلِمَة"/>
+    <meta property="og:description" content="لعبة بسيطة تساعد على تحويل المحتوى العربي من الكتب المصورة إلى محتوى رقمي حتى يمكن للمكفوفين الاستفادة منه."/>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <ul class="nav nav-pills second-nav pull-right">
+          <% if user_signed_in? %>
+            <li class="first expanded">
+              <div class="dropdown">
+                <%= link_to '#', class: 'dropdown-toggle', id: 'dropdownMenu1', data: {toggle: 'dropdown'} do %>
+                  <%= current_user.name %>
+                  <span class="caret"></span>
+                <% end %>
+                <ul class="dropdown-menu" role="menu">
+                  <li><div><span class="glyphicon glyphicon-log-out"></span><%= link_to t(:logout), destroy_user_session_path %></div></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <%= image_tag current_user.image %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t(:signin), '#', class: 'login-butt' %>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="nav nav-pills mid pull-right">
+          <li>
+            <h2><%= image_tag 'kelma.png', class: 'logo' %></h2>
+          </li>
+        </ul>
+        <ul class="nav nav-pills first-nav pull-left">
+          <li>
+            <%= link_to t(:play_now), play_random_games_path, class: 'btn'  %>
+          </li>
+          <li>
+            <%= link_to t(:rankings), rankings_games_path, class: 'btn'  %>
+          </li>
+          <%= render partial: 'shared/change_local' %>
+        </ul>
+      </div>
+    </nav>
+    <div id="main-container">
+      <div class="alert-wrapper">
+        <%= bootstrap_flash %>
+      </div>
+      <%= yield %>
+    </div>
+    <div class="signin modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" type="button"> × </button>
+            <div class="modal-title centered">
+              <%= t(:signin_message) %>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="centered">
+              <div class="login">
+                <%- imgs = %w(twitterr.png) %>
+                <p>
+                  <% User.omniauth_providers.each_with_index do |provider, i| %>
+                    <div>
+                      <%= link_to omniauth_authorize_path('user', provider) do %>
+                        <%=image_tag imgs[i] %>
+                      <% end %>
+                    </div>
+                    <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

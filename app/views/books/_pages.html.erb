@@ -1,0 +1,30 @@
+<% @pages.each_with_index do |page, i| %>
+  <div class="page-image">
+    <%= i+1 %> - <%= image_tag page.attachment %>
+  </div>
+  <div class="rot">
+    <%= link_to '<- Rotate', rotate_page_book_path(page.book, page_id: page.id, or: 'clock'), class: 'btn btn-primary' %>
+    <%= link_to 'Rotate ->', rotate_page_book_path(page.book, page_id: page.id, or: 'anti'), class: 'btn btn-primary' %>
+  </div>
+  <div class="remove">
+    <%= link_to 'Delete page', remove_page_book_path(page.book, page_id: page.id), data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+  </div> 
+  <div class="words">`
+    <% page.words.each do |word| %>
+      <span class="word-container" id="<%= word.id.to_s %>">
+        <%= image_tag word.image %>
+        <%= word.max_guess %>
+        <% unless word.max_guess.blank? %>
+          <% unless word.verified %>
+            <%= link_to "Correct", verify_word_book_path(word_id: word.id, id: page.book.id, valid: "true"), class: 'btn btn-success', remote: true %>
+          <% else %>
+            <%= link_to "Wrong", verify_word_book_path(word_id: word.id, id: page.book.id, valid: ""), class: 'btn btn-danger', remote: true %>
+          <% end %>
+        <% end %>
+        <br>
+      </span>
+      <br>
+    <% end %>
+  </div>
+  <br><br>
+<% end %>

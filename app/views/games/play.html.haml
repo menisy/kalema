@@ -1,0 +1,116 @@
+#animated.element-animation
+  Hello there
+.left-box.pull-left
+  .progress-container
+    .progress
+
+.game-container
+  .upper-box
+
+  - css = @lang == 'ara' ? 'rtl' : ''
+  .text-box
+    = text_field_tag nil, nil, id: 'input', class: css
+
+.right-box.pull-right
+  .slider-container
+    .white
+      =t(:speed)
+    %input{type:"text", class:"slider hide", :'data-slider-min' => "1", :'data-slider-max' => "5", :'data-slider-step' => "-1", :'data-slider-value' => "#{get_speed}", :'data-slider-orientation' => "vertical", :'data-slider-selection' => "after", :'data-slider-tooltip' => "hide"}
+
+%span.speed.hide
+  =get_speed
+
+.center
+  .start.btn.btn-primary
+    = t(:start)
+  =link_to t(:restart), play_random_games_path, class: 'restart btn btn-primary hide'
+  =link_to t(:instructions), '#', class: 'instructions'
+
+.image-holder
+  - @words.each_with_index do |word, i|
+    = image_tag word.image, id: "#{i}", name: "#{word.id}"
+
+.counter
+  %h1.one
+    1
+  %h1.two
+    2
+  %h1.three
+    3
+  %h1.go
+    =t(:go)
+.welcome.fade.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %ul.nav.nav-pills.pull-left
+          = render partial: 'shared/change_local'
+        .centered.seventy
+          %h3.modal-title
+            =t(:welcome)
+            %span.logo-inv
+      .modal-body
+        .centered
+          %p
+            = t(:intro)
+          = image_tag 'inst.png', class: 'inst'
+          %p
+            =make_bold(t(:playing_instructions))
+          =link_to t(:play), '#', class: 'btn btn-success', data:{ dismiss: 'modal'}
+      .modal-footer
+        .centered
+          .login
+            -imgs = %w(twitter.png)
+            %p
+              =t(:signin_message)
+              -User.omniauth_providers.each_with_index do |provider, i|
+                %div
+                  =link_to omniauth_authorize_path('user', provider) do
+                    =image_tag imgs[i]
+
+
+
+.modal.fade.endGame
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        .centered
+          %h3.modal-title
+            =t(:challenge_completed)
+      .modal-body
+        .centered
+          %p
+            = t(:calculating_score)
+          =link_to t(:play_again), play_random_games_path, class: 'btn btn-success'
+      .modal-footer
+        .centered
+          .share
+            %p
+              =t(:share)
+            %div{class:"fb-feed", data: {width: "450"}}
+              =image_tag 'facebook.png'
+            %div{class:"twitter", data: {width: "450"}}
+              =link_to "https://twitter.com/share?url=http://146.185.151.250:1111/&text=#{t(:tweet)}&hashtags=Kalema,كَلِمَة", target: :blank do
+                =image_tag 'twitter.png'
+
+.gameinfo.hide
+  .myscore
+    =t(:myscore)
+  .caption
+    =t(:canyou)
+  .description
+    =t(:desc)
+  .in
+    =t(:in)
+  .seconds
+    =t(:seconds)
+  .score
+  .time
+  %div{ class: 'game-id', id: "#{@game.id}"}
+
+-unless current_user || session[:first]
+  -session[:first] = true
+  .first-time.hide
+

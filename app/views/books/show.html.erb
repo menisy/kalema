@@ -1,0 +1,65 @@
+<%- model_class = Book -%>
+<div class="page-header">
+  <h1><%= @book.name.titleize %></h1>
+</div>
+
+<h2>Cover</h2>
+<%= image_tag @book.attachment %>
+
+<h2>Pages</h2>
+
+<% css = @book.lang == 'ara' ? 'rtl' : '' %>
+<div class="<%= css %>">
+  <%= render 'pages' %>
+</div>
+
+<div id="upload">
+  <div id="dropzone">
+    <div class="browse btn btn-primary"> Upload pages </div>
+    <input id="fileupload" class="hide" data-url= '<%="/books/#{@book.id}/new_page"%>' multiple = "" name = "page[attachment]" type = "file" hidden="true"/>
+    <ul class="upload-list list-group"></ul>
+  </div>
+</div>
+
+<% if @book.generatable? %>
+  <%= link_to 'Generate words', generate_words_book_path(@book), class: 'btn btn-success' %>
+<% end %>
+
+<h2>Whole Text:</h2>
+
+<p>
+  <%= @book.whole_text %>
+</p>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @book.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:reference) %>:</strong></dt>
+  <dd><%= @book.reference %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lang) %>:</strong></dt>
+  <dd><%= @book.lang %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              books_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_book_path(@book), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              book_path(@book),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+<% if @book.playable? %>
+  <%= link_to 'Play!', play_book_path(@book), class: 'btn btn-success' %>
+<% end %>
+
+
+<% if @reload %>
+  <script>
+    $(document).ready(function(){
+      setTimeout('window.location.href="<%= book_url(@book) %>"',2*60000);
+    });
+  </script>
+<% end %>

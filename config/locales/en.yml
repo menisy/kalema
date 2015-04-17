@@ -1,0 +1,55 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  welcome: "Welcome to "
+  books: "Books"
+  go: "Go!"
+  language_set: 'Language changed successfully'
+  playing_instructions: 'Type the words as they fall as ((accurately)) and as ((quickly)) as possible, and press ((Enter)) after typing the word.'
+  play_now: 'Play now!'
+  play: 'Play!'
+  keep_score: 'To keep your scores and ranks, please sign in using one of the following services'
+  restart: 'Restart'
+  start: 'Start'
+  play_again: 'Play again!'
+  calculating_score: 'Calculating score please wait...'
+  score_is: 'Your score is %{total}! Your time is %{time} seconds'
+  challenge_completed: 'Challenge Completed!'
+  share: 'Share it with your friends'
+  instructions: 'Instructions'
+  signin: 'Sign in'
+  signin_message: 'You can sign in using Twitter to keep your score and ranking'
+  signedin: 'Signed in successfully'
+  logout: 'Logout'
+  igot: 'I got '
+  canyou: 'You think you can beat my score?!'
+  desc: 'Type in the falling words as quickly and as accurately as possible and be the winner among your friends!'
+  in: 'in'
+  myscore: 'My score is '
+  seconds: 'seconds'
+  tweet: 'Can you beat my score?! Enter the words quickly and accurately as they fall!'
+  rankings: 'Rankings'
+  all_time: 'All Time'
+  points: 'points'
+  games: 'games'
+  speed: 'Speed'
+  intro: 'Kalema is a simple game which helps in digitizing Arabic scanned content for the visually impaired so that they can use it at ease.'
